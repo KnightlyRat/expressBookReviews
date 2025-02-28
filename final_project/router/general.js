@@ -12,7 +12,13 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
- const axios = require('axios');
+ getAllBooks()
+    .then((books));   res.send(books)
+    .catch((err));     console.error(err);
+});
+
+
+async function getAllBooks() {}
 
 public_users.get('/isbn/:isbn', async function (req, res) {
     try {
@@ -23,7 +29,7 @@ public_users.get('/isbn/:isbn', async function (req, res) {
     } catch (error) {
         res.status(500).send('Error retrieving book details');
     }
-});
+
   return res.status(300).json({message: "Yet to be implemented"});
 });
 

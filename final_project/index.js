@@ -12,7 +12,7 @@ app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUni
 
 app.use("/customer/auth/*", function auth(req, res, next) {
     if (req.session && req.session.accessToken) {
-        jwt.verify(req.session.accessToken, 'your_secret_key', (err, decoded) => {
+        jwt.verify(req.session.accessToken, '123', (err, decoded) => {
             if (err) {
                 return res.status(401).send('Unauthorized: Invalid token');
             } else {
